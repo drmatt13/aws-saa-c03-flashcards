@@ -66,16 +66,24 @@ export default function Home() {
               <Card
                 front={
                   <div className="h-full w-full flex justify-center items-center animate-fade-in">
-                    {q}
+                    <p className="cursor-text w-max">{q}</p>
                   </div>
                 }
                 back={
                   <div
-                    className="h-full w-full flex flex-col justify-center items-center animate-fade-in"
+                    className="h-full w-full flex flex-col justify-center items-center animate-fade-in gap-3"
                     // onclick open  google.com in a new tab
-                    onClick={() => window.open(links[q as keyof typeof links])}
+                    // onClick={() => window.open(}
                   >
-                    {awsServices[q as keyof typeof awsServices]}
+                    <p className="cursor-text w-max">
+                      {awsServices[q as keyof typeof awsServices]}
+                    </p>
+                    <a
+                      className="text-blue-500 cursor-pointer hover:underline"
+                      href={links[q as keyof typeof links]}
+                    >
+                      {links[q as keyof typeof links]}
+                    </a>
                   </div>
                 }
               />

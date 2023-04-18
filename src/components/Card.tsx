@@ -4,54 +4,32 @@ import React, { useState } from "react";
 const Card = ({ front, back }: any) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  const handleMouseEnter = () => {
-    setIsFlipped(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsFlipped(false);
-  };
-
   return (
-    <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className="relative w-[30rem] max-w-[90vw] h-72"
-      style={{
-        transformStyle: "preserve-3d",
-        perspective: "1000px",
-      }}
-    >
+    <div className="relative w-[30rem] max-w-[90vw] h-72">
       <div
-        className="rounded-xl bg-neutral-900 border border-neutral-800 absolute top-0 left-0 w-full h-full flex justify-center items-center transition-transform duration-1000 ease-in-out"
-        style={{
-          transform: `rotate3d(0, ${isFlipped ? 1 : 0}, 0, 180deg)`,
-          backfaceVisibility: "hidden",
-        }}
+        className={`${
+          !isFlipped ? "text-green-600" : "text-red-700"
+        } absolute top-2.5 right-3 z-10 no-select`}
       >
-        <img
-          className="no-select pointer-events-none absolute top-0 left-0 w-full h-full object-cover rounded-xl -z-10 blur opacity-25"
-          src="./background2.webp"
-          alt="background"
-          // disable draggability
-          draggable={false}
-        />
-        <div className="w-full h-full">{front}</div>
+        {!isFlipped ? "front" : "back"}
       </div>
       <div
-        className="rounded-xl bg-neutral-900 border border-neutral-800 absolute top-0 left-0 w-full h-full flex justify-center items-center transition-transform duration-1000 ease-in-out"
-        style={{
-          transform: `rotate3d(0, ${isFlipped ? 0 : 1}, 0, 180deg)`,
-          backfaceVisibility: "hidden",
-        }}
+        className={`${
+          !isFlipped ? "bg-slate-900" : "pointer-events-none opacity-0"
+        } rounded-xl border border-slate-950 absolute top-0 left-0 w-full h-full flex justify-center items-center cursor-pointer`}
       >
-        <img
-          className="no-select pointer-events-none absolute top-0 left-0 w-full h-full object-cover rounded-xl -z-10 blur opacity-75"
-          src="./background.avif"
-          alt="background"
-          draggable={false}
-        />
-        <div className="w-full h-full">{back}</div>
+        <div className="w-full h-full" onClick={() => setIsFlipped(true)}>
+          {front}
+        </div>
+      </div>
+      <div
+        className={`${
+          isFlipped ? "bg-slate-900" : "pointer-events-none opacity-0"
+        } rounded-xl border border-slate-950 absolute top-0 left-0 w-full h-full flex justify-center items-center cursor-pointer`}
+      >
+        <div className="w-full h-full" onClick={() => setIsFlipped(false)}>
+          {back}
+        </div>
       </div>
     </div>
   );
