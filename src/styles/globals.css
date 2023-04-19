@@ -16,6 +16,11 @@
   }
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* For some Android versions */
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

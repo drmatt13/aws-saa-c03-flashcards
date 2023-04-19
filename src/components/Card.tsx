@@ -9,7 +9,7 @@ const Card = ({ front, back }: any) => {
       <div
         className={`${
           !isFlipped ? "text-green-600" : "text-red-700"
-        } absolute top-2.5 right-3 z-10 no-select`}
+        } absolute top-2.5 right-3 z-10 no-select pointer-events-none`}
       >
         {!isFlipped ? "front" : "back"}
       </div>

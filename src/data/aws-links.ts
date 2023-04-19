@@ -46,7 +46,7 @@ const links = {
   "Step Functions": "https://tutorialsdojo.com/aws-step-functions/",
   "App Runner": "https://www.youtube.com/watch?v=ycdo9UyNs98",
   Glue: "https://tutorialsdojo.com/aws-glue/",
-  Kinesis: "https://tutorialsdojo.com/amazon-kinesis/g",
+  Kinesis: "https://tutorialsdojo.com/amazon-kinesis",
   "AWS Backup": "https://tutorialsdojo.com/aws-backup/",
 };
 

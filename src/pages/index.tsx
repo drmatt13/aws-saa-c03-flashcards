@@ -66,7 +66,14 @@ export default function Home() {
               <Card
                 front={
                   <div className="h-full w-full flex justify-center items-center animate-fade-in">
-                    <p className="cursor-text w-max">{q}</p>
+                    <p
+                      className="cursor-text w-max"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                      }}
+                    >
+                      {q}
+                    </p>
                   </div>
                 }
                 back={
@@ -75,11 +82,20 @@ export default function Home() {
                     // onclick open  google.com in a new tab
                     // onClick={() => window.open(}
                   >
-                    <p className="cursor-text w-max">
+                    <p
+                      className="cursor-text w-max"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                      }}
+                    >
                       {awsServices[q as keyof typeof awsServices]}
                     </p>
                     <a
-                      className="text-blue-500 cursor-pointer hover:underline"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                      }}
+                      target="_blank"
+                      className="text-blue-500 cursor-pointer hover:underline truncate w-full px-4 text-center"
                       href={links[q as keyof typeof links]}
                     >
                       {links[q as keyof typeof links]}
@@ -97,7 +113,7 @@ export default function Home() {
             <button
               className={`${
                 currentQuestion > 0
-                  ? "bg-red-400 cursor-pointer"
+                  ? "bg-red-600/80 hover:bg-red-600 cursor-pointer"
                   : "bg-neutral-800 cursor-not-allowed"
               } flex-1 flex justify-center py-3 rounded transition-colors duration-300 ease-out`}
               onClick={() => {
